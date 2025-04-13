@@ -50,4 +50,54 @@ public class MyVector3
 
         return rv;
     }
+
+    public float LengthSq()
+    {
+        float rv = 0.0f;
+
+        rv = x * x + y * y + z * z;
+
+        return rv;
+    }
+
+    static MyVector3 ScaleVector(MyVector3 v, float scalar) 
+    {
+        MyVector3 rv = new MyVector3(0, 0, 0);
+
+        rv.x = v.x * scalar;
+        rv.y = v.y * scalar;
+        rv.z = v.z * scalar;
+
+        return rv;
+    }
+
+    static MyVector3 DivideVector(MyVector3 v, float divisor)
+    {
+        MyVector3 rv = new MyVector3(0, 0, 0);
+
+        rv.x = v.x / divisor;
+        rv.y = v.y / divisor;
+        rv.z = v.z / divisor;
+
+        return rv;
+    }
+
+    public MyVector3 NormalizeVector() 
+    {
+        MyVector3 rv = new MyVector3(0, 0, 0);
+
+        rv = DivideVector(this, this.Length());
+
+        return rv;
+    }
+
+    static float VectorDot(MyVector3 a, MyVector3 b) 
+    {
+        float rv = 0.0f;
+
+        rv = a.x * b.x + a.y * b.y + a.z * b.z;
+
+        return rv;
+    }
+
 }
